@@ -1,0 +1,12 @@
+select
+  title as Pealkiri,
+  price as Hind
+from
+  yl21_books
+where
+  price > (
+    select
+      avg(price)
+    from
+      yl21_books
+  )
