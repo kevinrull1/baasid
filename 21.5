@@ -1,0 +1,8 @@
+select
+  year(order_date) as "müükida summa",
+  round(sum(price), 2) as "summa"
+from
+ yl21_orders
+  left join yl21_books on yl21_orders.book_id = yl21_books.id
+group by
+  year(order_date);
