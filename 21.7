@@ -1,0 +1,15 @@
+select
+  year(order_date),
+  title,
+  book_id
+from
+  yl21_orders
+  left join yl21_books on yl21_orders.client_id = yl21_books.id
+where
+  year(order_date) = 2017
+group by
+  book_id
+order by
+  book_id desc
+limit
+  10;
