@@ -1,0 +1,9 @@
+select
+  *
+from
+  yl21_clients
+  left join yl21_orders on yl21_clients.id = yl21_orders.client_id
+where
+  year(order_date) = 2017
+group by
+  client_id;
