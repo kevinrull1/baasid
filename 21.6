@@ -1,0 +1,9 @@
+select
+  year(order_date) as "aasta",
+  sum(price),
+  count(year(order_date))
+from
+  yl21_orders
+  left join yl21_books on yl21_orders.book_id = yl21_books.id
+where
+  year(order_date) = 2017;
