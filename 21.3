@@ -1,0 +1,11 @@
+select
+  title,
+  release_date,
+  price,
+  type
+from
+  yl21_books
+where
+  release_date <= 1970
+  and type = "used"
+  and price <= 20;
