@@ -1,0 +1,8 @@
+select
+  type AS tüüp,
+  avg(price) AS keskmine_hind,
+  count(stock_saldo) AS raamatute_hulk
+from
+  yl21_books
+group by
+  type
