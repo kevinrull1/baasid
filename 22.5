@@ -1,0 +1,18 @@
+select
+  title,
+  price,
+  type
+from
+  yl21_books
+where
+  type = "used"
+  and price > (
+    select
+      avg(price)
+    from
+      yl21_books
+    where
+      type = "new"
+  )
+order by
+  price;
