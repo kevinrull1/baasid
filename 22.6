@@ -1,0 +1,19 @@
+SELECT
+  price
+FROM
+  yl21_books
+where
+  price > (
+    SELECT
+      avg(price)
+    FROM
+      yl21_orders
+      LEFT JOIN yl21_books on yl21_books.id = yl21_orders.book_id
+      LEFT JOIN yl21_book_authors on yl21_orders.book_id = yl21_book_authors.book_id
+    GROUP BY
+      yl21_book_authors.author_id
+    order by
+      count(*) DESC
+    LIMIT
+      1
+  );
